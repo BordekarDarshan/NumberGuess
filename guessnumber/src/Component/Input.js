@@ -14,15 +14,26 @@ export class Input extends Component {
   };
   checkVal = () => {
     let convert = Number(this.state.inputVal);
-    console.log(convert, "Convert");
 
-    let diff = convert - Math.round(Math.random() * this.state.limit);
+    let diff = Math.round(Math.random() * this.state.limit) - convert;
+
+    let Balance = this.setState({ ...this.state.limit });
+
     if (diff === 0) {
-      alert("Ureka");
+      alert("Correct");
+
       this.setState({ limit: this.state.limit + 100 });
-      console.log(this.state.limit, "LIMIT");
+    } else if (diff >= 1 && diff <= 4) {
+      alert("Hot");
+      return Balance;
+    } else if (diff >= 5 && diff <= 14) {
+      alert("Warm");
+      return Balance;
+    } else if (diff >= 15) {
+      alert("Cold");
+      return Balance;
     }
-    console.log(diff);
+    console.log("Limit", this.state.limit);
   };
   render() {
     return (
