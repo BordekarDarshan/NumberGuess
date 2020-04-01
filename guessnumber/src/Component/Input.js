@@ -3,7 +3,7 @@ import InputUI from "../UI/InputUI";
 export class Input extends Component {
   constructor(props) {
     super(props);
-
+    this.Temperature = undefined;
     this.state = {
       limit: 100,
       inputVal: 0
@@ -16,23 +16,25 @@ export class Input extends Component {
   checkVal = () => {
     let UserInput = Number(this.state.inputVal);
     let Difference = Math.round(Math.random() * this.state.limit) - UserInput;
-    let Temperature = undefined;
+
     if (Difference === 0) {
       alert("Correct");
       this.setState({ limit: this.state.limit + 100 });
     } else if (Difference >= 1 && Difference <= 4) {
       this.setState({ ...this.state.limit });
 
-      Temperature = "Hot";
-      return Temperature;
+      this.Temperature = "Hot";
+      return this.Temperature;
     } else if (Difference >= 5 && Difference <= 14) {
       this.setState({ ...this.state.limit });
-      return Temperature;
+
+      this.Temperature = "Warm";
+      return this.Temperature;
     } else if (Difference >= 15) {
       this.setState({ ...this.state.limit });
 
-      Temperature = "Cold";
-      return Temperature;
+      this.Temperature = "Cold";
+      return this.Temperature;
     }
   };
 
@@ -44,6 +46,7 @@ export class Input extends Component {
           OnChangeEvent={this.getInput}
           OnClickEvent={this.checkVal}
         ></InputUI>
+        {console.log(this.Temperature)}
       </React.Fragment>
     );
   }
