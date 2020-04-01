@@ -17,7 +17,7 @@ function InputUI(props) {
             className="form-control col-lg-5"
             name="inputVal"
           ></input>
-          <button onClick={OnClickEvent} className="btn btn-info  mt-2">
+          <button onClick={OnClickEvent} className="btn btn-info  mt-3">
             Start Guessing
           </button>
         </div>
