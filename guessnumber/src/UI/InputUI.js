@@ -35,6 +35,12 @@ function InputUI(props) {
         {Temperature === "Correct" && (
           <img src={Correct} className="img-fluid" alt="Correct"></img>
         )}
+        {Temperature === "Negative" && (
+          <h5 className="text-white FontChange">
+            The difference is Negative, please Enter the number between the
+            "Limits" given below.
+          </h5>
+        )}
       </div>
       <div className="row mt-3">
         <div className="col-lg-12">

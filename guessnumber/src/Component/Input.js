@@ -16,15 +16,16 @@ export class Input extends Component {
       this.setState({ [name]: parseInt(value) });
     } catch (e) {
       this.setState({ [name]: 0 });
+      console.log(this.state.inputVal);
     }
   };
 
   checkVal = () => {
     let UserInput = Convert(this.state.inputVal);
-    console.log(UserInput, "dd");
+    console.log(UserInput, "UserInput");
 
     let Difference = Math.round(Math.random() * this.state.limit) - UserInput;
-
+    console.log(Difference, "Difference");
     if (Difference === 0) {
       this.setState({ limit: this.state.limit + 100 });
       this.Temperature = "Correct";
@@ -43,6 +44,10 @@ export class Input extends Component {
       this.setState({ ...this.state.limit });
 
       this.Temperature = "Cold";
+      return this.Temperature;
+    } else if (Difference < 0) {
+      this.setState({ ...this.state.limit });
+      this.Temperature = "Negative";
       return this.Temperature;
     }
   };
