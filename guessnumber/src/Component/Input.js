@@ -7,16 +7,21 @@ export class Input extends Component {
     this.Temperature = undefined;
     this.state = {
       limit: 100,
-      inputVal: 0
+      inputVal: ""
     };
   }
   getInput = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    try {
+      this.setState({ [name]: parseInt(value) });
+    } catch (e) {
+      this.setState({ [name]: 0 });
+    }
   };
 
   checkVal = () => {
-    let ConverMinus = Number(this.state.inputVal);
-    let UserInput = Convert(ConverMinus);
+    let UserInput = Convert(this.state.inputVal);
+    console.log(UserInput, "dd");
 
     let Difference = Math.round(Math.random() * this.state.limit) - UserInput;
 
