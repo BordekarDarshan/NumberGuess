@@ -53,12 +53,12 @@ function InputUI(props) {
       </div>
       <div className="row">
         <div
-          class="card text-white fixed-bottom bg-info mb-3 ml-3"
-          style={{ "max-width": "18rem" }}
+          className="card text-white fixed-bottom bg-info mb-3 ml-3"
+          style={{ width: "18rem" }}
         >
-          <div class="card-header">Note</div>
-          <div class="card-body">
-            <p class="card-text FontChange">
+          <div className="card-header">Note</div>
+          <div className="card-body">
+            <p className="card-text FontChange">
               Note - You Can Choose any number as a input, But if you select the
               number between the{" "}
               <span style={{ color: "black" }}>Given Limits</span>, you will get

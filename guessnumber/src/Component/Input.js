@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import InputUI from "../UI/InputUI";
+import { Convert } from "../Declarative/Covert";
 export class Input extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,9 @@ export class Input extends Component {
   };
 
   checkVal = () => {
-    let UserInput = Number(this.state.inputVal);
+    let ConverMinus = Number(this.state.inputVal);
+    let UserInput = Convert(ConverMinus);
+
     let Difference = Math.round(Math.random() * this.state.limit) - UserInput;
 
     if (Difference === 0) {
