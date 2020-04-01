@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import InputUI from "../UI/InputUI";
 export class Input extends Component {
   constructor(props) {
     super(props);
@@ -34,17 +35,11 @@ export class Input extends Component {
 
   render() {
     return (
-      <div>
-        <input
-          type="number"
-          value={this.state.inputVal}
-          onChange={this.getInput}
-          name="inputVal"
-        ></input>
-        <button onClick={this.checkVal} className="btn">
-          Check
-        </button>
-      </div>
+      <InputUI
+        Value={this.state.inputVal}
+        OnChangeEvent={this.getInput}
+        OnClickEvent={this.checkVal}
+      ></InputUI>
     );
   }
 }
