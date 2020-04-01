@@ -45,8 +45,8 @@ export class Input extends Component {
           Value={this.state.inputVal}
           OnChangeEvent={this.getInput}
           OnClickEvent={this.checkVal}
+          Temperature={this.Temperature}
         ></InputUI>
-        {console.log(this.Temperature)}
       </React.Fragment>
     );
   }
