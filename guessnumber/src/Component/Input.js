@@ -12,16 +12,13 @@ export class Input extends Component {
   }
   getInput = e => {
     const { name, value } = e.target;
-    try {
-      this.setState({ [name]: parseInt(value) });
-    } catch (e) {
-      this.setState({ [name]: 0 });
-      console.log(this.state.inputVal);
-    }
+
+    this.setState({ [name]: value });
   };
 
   checkVal = () => {
-    let UserInput = Convert(this.state.inputVal);
+    let CovertNtoP = Number(this.state.inputVal);
+    let UserInput = Convert(CovertNtoP);
     console.log(UserInput, "UserInput");
 
     let Difference = Math.round(Math.random() * this.state.limit) - UserInput;
