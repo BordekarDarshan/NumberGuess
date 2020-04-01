@@ -16,30 +16,35 @@ export class Input extends Component {
   checkVal = () => {
     let UserInput = Number(this.state.inputVal);
     let Difference = Math.round(Math.random() * this.state.limit) - UserInput;
-    let Balance = this.setState({ ...this.state.limit });
-
+    let Temperature = undefined;
     if (Difference === 0) {
       alert("Correct");
       this.setState({ limit: this.state.limit + 100 });
     } else if (Difference >= 1 && Difference <= 4) {
-      alert("Hot");
-      return Balance;
+      this.setState({ ...this.state.limit });
+
+      Temperature = "Hot";
+      return Temperature;
     } else if (Difference >= 5 && Difference <= 14) {
-      alert("Warm");
-      return Balance;
+      this.setState({ ...this.state.limit });
+      return Temperature;
     } else if (Difference >= 15) {
-      alert("Cold");
-      return Balance;
+      this.setState({ ...this.state.limit });
+
+      Temperature = "Cold";
+      return Temperature;
     }
   };
 
   render() {
     return (
-      <InputUI
-        Value={this.state.inputVal}
-        OnChangeEvent={this.getInput}
-        OnClickEvent={this.checkVal}
-      ></InputUI>
+      <React.Fragment>
+        <InputUI
+          Value={this.state.inputVal}
+          OnChangeEvent={this.getInput}
+          OnClickEvent={this.checkVal}
+        ></InputUI>
+      </React.Fragment>
     );
   }
 }
